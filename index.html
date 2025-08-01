@@ -1,58 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple E-Commerce</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Amazon Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-    <header>
-        <div class="logo">My Shop</div>
-        <div class="cart">
-            <span id="cart-count">0</span> items in cart
-        </div>
-    </header>
+  <header>
+    <div class="navbar">
+      <div class="logo">🛒Maashoo</div>
+      <input type="text" placeholder="Search for products..." id="search-box">
+      <div class="cart">
+        <i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span>
+      </div>
+    </div>
+  </header>
 
-    <main>
-        <h1>Product List</h1>
-        <div class="product-list">
-            <!-- Product Item 1 -->
-            <div class="product">
-                <img src="watch.jpg">
-                <h3>WATCHES</h3>
-                <p>$19.99</p>
-                <button class="add-to-cart" data-name="WATCHES" data-price="19.99">Add to Cart</button>
-            </div>
-            <!-- Product Item 2 -->
-            <div class="product">
-                <img src="phones.jpg">
-                <h3>PHONES</h3>
-                <p>$29.99</p>
-                <button class="add-to-cart" data-name="PHONES" data-price="29.99">Add to Cart</button>
-            </div>
-            <!-- Product Item 3 -->
-            <div class="product">
-                <img src="headset.jpg">
-                <h3>HEADSET</h3>
-                <p>$39.99</p>
-                <button class="add-to-cart" data-name="HEADSET" data-price="39.99">Add to Cart</button>
-            </div>
-        </div>
+  <main>
+    <h2 class="section-title">Featured Products</h2>
+    <div class="product-grid" id="product-list"></div>
+  </main>
 
-        <div id="cart-container" style="display:none;">
-            <h2>Your Cart</h2>
-            <ul id="cart-items">
-                <!-- Cart items will appear here -->
-            </ul>
-            <p id="cart-total">Total: $0.00</p>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 My E-Commerce Site</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+

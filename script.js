@@ -1,40 +1,50 @@
+ const products = [
+  {
+    id: 1,
+    name: "Watches",
+    price: 899,
+    image: "watch.jpg"
+  },
+  {
+    id: 2,
+    name: "Bluetooth Headphones",
+    price: 1499,
+    image: "headset.jpg"
+  },
+  {
+    id: 3,
+    name: "Smartphone",
+    price: 39999,
+    image: "phones.jpg"
+  }
+];
+
 let cart = [];
-const cartCount = document.getElementById('cart-count');
-const cartContainer = document.getElementById('cart-container');
-const cartItemsList = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
 
-// Add event listeners to "Add to Cart" buttons
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', (event) => {
-        const name = event.target.getAttribute('data-name');
-        const price = parseFloat(event.target.getAttribute('data-price'));
-        
-        // Add product to cart
-        cart.push({ name, price });
-        updateCart();
-    });
-});
+const productList = document.getElementById("product-list");
+const cartCount = document.getElementById("cart-count");
 
-// Update cart UI
-function updateCart() {
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    const itemCount = cart.length;
-
-    // Update cart count display
-    cartCount.textContent = itemCount;
-
-    // Update cart total price
-    cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-
-    // Display cart items
-    cartItemsList.innerHTML = '';
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-        cartItemsList.appendChild(li);
-    });
-
-    // Show the cart container
-    cartContainer.style.display = itemCount > 0 ? 'block' : 'none';
+function renderProducts() {
+  productList.innerHTML = "";
+  products.forEach(product => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h4>${product.name}</h4>
+      <p>₹${product.price}</p>
+      <button onclick="addToCart(${product.id})">Add to Cart</button>
+    `;
+    productList.appendChild(card);
+  });
 }
+
+function addToCart(id) {
+  cart.push(id);
+  cartCount.textContent = cart.length;
+}
+
+renderProducts();
+
+
+
